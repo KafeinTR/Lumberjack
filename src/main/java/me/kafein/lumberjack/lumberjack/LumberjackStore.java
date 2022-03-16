@@ -22,7 +22,7 @@ public interface LumberjackStore {
     }
 
     /**
-     * save all player's lumberjack
+     * save all players lumberjack
      */
     void saveAll();
 
