@@ -4,7 +4,6 @@ import me.kafein.lumberjack.LumberjackPluginAPI;
 import me.kafein.lumberjack.config.Config;
 import me.kafein.lumberjack.config.ConfigStore;
 import me.kafein.lumberjack.config.ConfigType;
-import me.kafein.lumberjack.lumberjack.LumberjackStore;
 import me.kafein.lumberjack.npc.NPC;
 import me.kafein.lumberjack.npc.NPCManager;
 import org.bukkit.Bukkit;
@@ -13,6 +12,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,8 +20,13 @@ import java.util.List;
 public class LumberjackCMD implements TabExecutor {
 
     final private ConfigStore configStore = LumberjackPluginAPI.get().getConfigStore();
-    final private LumberjackStore lumberjackStore = LumberjackPluginAPI.get().getLumberjackStore();
     final private NPCManager npcManager = LumberjackPluginAPI.get().getNpcManager();
+
+    final private Plugin plugin;
+
+    public LumberjackCMD(final Plugin plugin) {
+        this.plugin = plugin;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -40,6 +45,20 @@ public class LumberjackCMD implements TabExecutor {
         if (args.length == 0) {
             sendHelpMessage(player);
             return true;
+        }
+
+        if (args[0].equalsIgnoreCase("reload")) {
+
+            final Config settings = Config.create(plugin, "settings.yml", true);
+            configStore.put(ConfigType.settings, settings);
+
+            Config language = Config.create(plugin, "language.yml", true);
+            configStore.put(ConfigType.language, language);
+
+            LumberjackPluginAPI.get().getStorageFactory().loadStorage();
+
+            return true;
+
         }
 
         if (args[0].equalsIgnoreCase("npc")) {
@@ -114,7 +133,7 @@ public class LumberjackCMD implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.isOp()) return null;
-        if (args.length == 1) return Arrays.asList("npc");
+        if (args.length == 1) return Arrays.asList("npc", "reload");
         if (args.length == 2 && args[0].equalsIgnoreCase("npc")) return Arrays.asList("create", "delete", "set");
         if (args.length == 3 && args[0].equalsIgnoreCase("npc")) return Arrays.asList("<name>");
         if (args.length == 4 && args[0].equalsIgnoreCase("npc") && args[1].equalsIgnoreCase("create")) return Arrays.asList("<skin>");

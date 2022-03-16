@@ -19,7 +19,7 @@ settings:
   storage:
     type: "MariaDB"
     maria:
-      ip: "193.169.250.234"
+      ip: "localhost"
       database: "lumberjacks"
       user: "root"
-      password: "4545"
+      password: ""

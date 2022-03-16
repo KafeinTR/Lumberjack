@@ -42,7 +42,7 @@ public final class LumberjackPlugin extends JavaPlugin implements LumberjackPlug
 
         new SkillRunnable().start(this);
 
-        getCommand("lumberjack").setExecutor(new LumberjackCMD());
+        getCommand("lumberjack").setExecutor(new LumberjackCMD(this));
 
         registerListeners();
 
