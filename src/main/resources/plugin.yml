@@ -1,0 +1,9 @@
+name: Lumberjack
+version: 1.0.0
+main: me.kafein.lumberjack.LumberjackPlugin
+api-version: 1.13
+authors: [ Kafein ]
+description: Trial plugin.
+commands:
+  lumberjack:
+    description: main cmd.

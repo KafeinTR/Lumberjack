@@ -1,0 +1,25 @@
+settings:
+
+  skill-duration-multiplier: 2
+
+  becomeLumberjackSound: "ENTITY_PLAYER_LEVELUP"
+  knockDownSound: "BLOCK_WOOD_BREAK"
+
+  skill-actionbar-text: "&6&lKnockdown Skill Duration &7&l➜ &e&l%duration%s"
+
+  max-knockdown-block: 200
+
+  level:
+
+    applied-exp: 30-50
+
+    level-multiplier: 800
+    max-level: 30
+
+  storage:
+    type: "MariaDB"
+    maria:
+      ip: "193.169.250.234"
+      database: "lumberjacks"
+      user: "root"
+      password: "4545"

@@ -1,0 +1,30 @@
+language:
+
+  noPerm: "&6Lumberjack &8➜ &eYou don't have permission to do that."
+
+  help:
+    - ""
+    - "&6Lumberjack Commands&8; "
+    - ""
+    - "&e/lumberjack npc create <name> <skin>"
+    - "&e/lumberjack npc create <name>"
+    - "&8➜ &7Create a npc."
+    - ""
+    - "&e/lumberjack npc delete <name>"
+    - "&8➜ &7Delete a npc."
+    - ""
+    - "&e/lumberjack npc set <name>"
+    - "&8➜ &7Set NPC's location."
+    - ""
+
+  lumberjack:
+
+    givedExp: "&6Lumberjack &8➜ &7You have been given &e%exp% &7exp."
+    levelUp: "&6Lumberjack &8➜ &7Level upped to &e%level%"
+
+  npc:
+
+    created: "&6Lumberjack &8➜ &eNPC created."
+    deleted: "&6Lumberjack &8➜ &eNPC deleted."
+    setted: "&6Lumberjack &8➜ &eNPC's location setted."
+    notFound: "&6Lumberjack &8➜ &eNPC not found."

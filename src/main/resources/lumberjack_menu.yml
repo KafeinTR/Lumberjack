@@ -1,0 +1,23 @@
+menu:
+
+  title: "&6&lLumberjack"
+  fill: true
+
+  items:
+
+    become-lumberjack:
+      material: "EMERALD"
+      name: "&6Becoma a lumberjack"
+      lore:
+        - ""
+        - " &8▪ &eClick to become a lumberjack"
+        - ""
+
+    info:
+      material: "BOOK"
+      name: "&6Info"
+      lore:
+        - ""
+        - " &8▪ &7Level&8: &e%level%"
+        - " &8▪ &7Total Exp&8: &e%exp%"
+        - ""
